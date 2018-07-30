@@ -1,10 +1,9 @@
 import React from 'react';
-import FaIconPack from 'react-icons';
-const FaAnchor = require("react-icons/lib/fa/anchor");
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* eslint-disable no-undef */
 const { compose, withProps, withStateHandlers } = require("recompose");
-const FaAnchor = require("react-icons");
+const FaAnchor = require("@fortawesome/react-fontawesome");
 const {
   withScriptjs,
   withGoogleMap,
@@ -31,8 +30,9 @@ const MapWithAMarkedInfoWindow = compose(
         position={{ lat: 44.9778, lng: -93.258133 }}
         onClick={props.onToggleOpen}
       >
-        {props.isOpen && <InfoWindow onCloseClick={props.onToggleOpen}>
-          <FaAnchor />
+        {props.isOpen && 
+        <InfoWindow onCloseClick={props.onToggleOpen}>
+         <div>"Hello"</div> 
         </InfoWindow>}
       </Marker>
     </GoogleMap>
@@ -67,8 +67,8 @@ class MarkerMap extends React.PureComponent {
       render( ) {
 
         return (
-            <MapWithAMakredInfoWindow
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
+            <MapWithAMarkedInfoWindow
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHHRhTzzE5wUoHuZKmTJdTzD7sBFxvXB0&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `800px`, position:"relative", left: '500px' }} />}
             mapElement={<div style={{ height: `100%` }} />}

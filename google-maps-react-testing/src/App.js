@@ -3,6 +3,11 @@ import logo from './logo.svg';
 // import DemoApp from '../src/components/Map/Map';
 import './App.css';
 import MarkerMap from '../src/components/MarkerMap/MarkerMap';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
+
+
 
 class App extends Component {
   render() {
@@ -14,7 +19,7 @@ class App extends Component {
         </header>
     
         <p className="App-intro">
-          Hey  ..these maps are fucking confusing
+          
         </p>
         <MarkerMap/>
         {/* <DemoApp/> */}
@@ -22,5 +27,5 @@ class App extends Component {
     );
   }
 }
-
+library.add(faStroopwafel);
 export default App;
