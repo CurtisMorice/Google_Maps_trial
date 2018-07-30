@@ -1,16 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { compose, withProps, withStateHandlers } from "recompose";
 /* eslint-disable no-undef */
-const { compose, withProps, withStateHandlers } = require("recompose");
-const FaAnchor = require("@fortawesome/react-fontawesome");
-const {
+// const FaAnchor = "@fortawesome/react-fontawesome";
+import  {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker,
   InfoWindow,
-} = require("react-google-maps");
+} from "react-google-maps";
+
 const MapWithAMarkedInfoWindow = compose(
     withStateHandlers(() => ({
       isOpen: false,
@@ -70,7 +70,7 @@ class MarkerMap extends React.PureComponent {
             <MapWithAMarkedInfoWindow
             googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHHRhTzzE5wUoHuZKmTJdTzD7sBFxvXB0&v=3.exp&libraries=geometry,drawing,places"
             loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div style={{ height: `800px`, position:"relative", left: '500px' }} />}
+            containerElement={<div style={{ height: `800px`, width: `1000px`, position:"relative", left: '500px' }} />}
             mapElement={<div style={{ height: `100%` }} />}
           />
           
