@@ -3,8 +3,10 @@ import logo from './logo.svg';
 // import DemoApp from '../src/components/Map/Map';
 import './App.css';
 import MarkerMap from '../src/components/MarkerMap/MarkerMap';
+// import MapSearch from '../src/components/MapSearch/MapSearch';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -21,6 +23,7 @@ class App extends Component {
         <p className="App-intro">
           
         </p>
+        {/* <MapSearch/> */}
         <MarkerMap/>
         {/* <DemoApp/> */}
       </div>

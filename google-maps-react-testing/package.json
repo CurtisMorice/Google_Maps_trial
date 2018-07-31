@@ -16,6 +16,7 @@
     "npm": "^6.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-geosuggest": "^2.8.0",
     "react-google-maps": "^9.4.5",
     "react-icons": "^3.0.1",
     "react-material-icons": "^1.0.3",
