@@ -13,6 +13,11 @@ import  {
 } from "react-google-maps";
 import { SearchBox } from"react-google-maps/lib/components/places/SearchBox";
 import Geosuggest from 'react-geosuggest';
+import PropTypes from 'prop-types';
+import SpeechRecognition from '../SpeechRecognition/SpeechRecognition';
+
+
+
 
 
 
@@ -88,33 +93,8 @@ const MapWithAMarkedInfoWindow = compose(
     onBoundsChanged={props.onBoundsChanged}
     defaultCenter={{ lat: 44.9778, lng: -93.258133}}
     >
-      <SearchBox
-            ref={props.onSearchBoxMounted}
-            bounds={props.bounds}
-            controlPosition={google.maps.ControlPosition.TOP_LEFT}
-            onPlacesChanged={props.onPlacesChanged}
-          >
-            <input
-              type="search"
-              placeholder="Customized your placeholder"
-              style={{
-                boxSizing: `border-box`,
-                border: `1px solid transparent`,
-                width: `240px`,
-                height: `39px`,
-                marginTop: `27px`,
-                padding: `0 12px`,
-                borderRadius: `3px`,
-                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-                fontSize: `14px`,
-                outline: `none`,
-                textOverflow: `ellipses`,
-              }}
-            />
-          </SearchBox>
-          {props.markers.map((marker, index) =>
-            <Marker key={index} position={marker.position} />
-          )}
+     
+          {console.log('from SearchBox',props.markers)}
       <Marker
         position={{ lat: 44.9778, lng: -93.258133 }}
         onClick={props.onToggleOpen}
@@ -125,16 +105,16 @@ const MapWithAMarkedInfoWindow = compose(
         </InfoWindow>}
         <Geosuggest/>
       </Marker>
-    
+   
       
     </GoogleMap>
   );
-
-
-
-
-
-
+  const propTypes = {
+    // Props injected by SpeechRecognition
+    transcript: PropTypes.string,
+    resetTranscript: PropTypes.func,
+    browserSupportsSpeechRecognition: PropTypes.bool
+  }
 
 class MarkerMap extends Component {
       componentWillMount() {
@@ -155,22 +135,36 @@ class MarkerMap extends Component {
             this.setState({ markers: data.photos });
           }); 
       }
+
     
-      render( ) {
-          
+      render() {
+        const { transcript, resetTranscript, browserSupportsSpeechRecognition } = this.props
+
+        // if (!browserSupportsSpeechRecognition) {
+        //   return null
+        // }
 
         return (
-      
+          <div>
+            <SpeechRecognition/>
+          <button onClick={resetTranscript}>Reset</button>
+          <span>{transcript}</span>
+        
+     
          <div>
-            
+         
             <MapWithAMarkedInfoWindow   
             // googleMapURL="https://maps.googleapis.com/maps/api/js?
             // key=AIzaSyDHHRhTzzE5wUoHuZKmTJdTzD7sBFxvXB0&v=3.exp&libraries=geometry,drawing,places"
             // loadingElement  = {<div style={{ height: `100%` }} />}
             // containerElement = {<div style={{ height: `800px`, width: `1000px`, position:"relative", left: '500px' }} />}
             //  mapElement = {<div style={{ height: `100%` }} />}
+     
           />
           </div>
+                
+          </div>
+       
         )
       }
     }

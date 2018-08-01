@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import logo from './logo.svg';
 // import DemoApp from '../src/components/Map/Map';
 import './App.css';
@@ -9,7 +10,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStroopwafel } from '@fortawesome/free-solid-svg-icons';
 
-
+import SpeechRecognition from 'react-speech-recognition'; //As only one component can be wrapped by SpeechRecognition, 
+                                                          //it is recommended that you add it to one of your root React components 
+                                                          //such as App. The transcription can then be passed down to child components.
 
 class App extends Component {
   render() {
@@ -31,4 +34,4 @@ class App extends Component {
   }
 }
 library.add(faStroopwafel);
-export default App;
+export default SpeechRecognition(App);
